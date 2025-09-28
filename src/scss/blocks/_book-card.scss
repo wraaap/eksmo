@@ -1,0 +1,261 @@
+@use '../base/vars' as vars;
+@use '../base/mixins' as mixins;
+
+.book-card  {
+    &:first-child {
+        grid-area: a;
+    }
+    &:nth-child(2) {
+        grid-area: b;
+    }
+    &:nth-child(3) {
+        grid-area: c;
+    }
+    &:nth-child(4) {
+        grid-area: d;
+    }
+    &:nth-child(5) {
+        grid-area: e;
+    }
+    &:nth-child(6) {
+        grid-area: f;
+    }
+    &:nth-child(7) {
+        grid-area: g;
+    }
+
+    &__wrapper {
+        gap: 24px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__img {
+        background-image: url('./../../img/block/book_bg.jpg');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mixins.mediaBg() {
+            background-image: url('./../../img/block/book_bg@2x.jpg');
+        }
+
+        img {
+            transition: all 0.5s ease;
+        }
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    &__title {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 133%;
+        color: var(--header-color);
+        transition: all 0.3s ease;
+    }
+    &__author {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 133%;
+        color: var(--steel-blue);
+    }
+    &__desc {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 133%;
+        color: var(--text-color);
+
+        display: -webkit-box;           // Chrome, Safari, Edge
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;          // ограничение до 2 строк
+        overflow: hidden;
+        line-height: 1.5em;             
+        max-height: 3em;                 // 2 строки × 1.5em
+        word-wrap: break-word;
+        position: relative;
+    }
+    &__read-more.btn {
+        display: none;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 114%;
+        border: 1px solid var(--light-gray);
+        transition: all 0.3s ease;
+        &:hover,
+        &:focus {
+            border: 1px solid var(--accent);
+            transform: scale(1.01);
+            background-color: rgba(var(--accent-rgb), 0.1);
+            // color: #fff;
+        }
+    }
+
+    &:hover .book-card__img img {
+        transform: scale(1.05);
+    }
+
+    &:hover .book-card__title {
+        color: var(--accent);
+    }
+
+    &:first-child {
+        .book-card__title {
+            font-size: 24px;
+            line-height: 133%;
+        }
+        .book-card__author {
+            font-size: 18px;
+            line-height: 133%;
+        }
+        .book-card__desc {
+            font-size: 18px;
+            line-height: 133%;
+        }
+        .book-card__img {
+            height: 371px;
+            max-width: 550px;
+            img {
+                width: 178px;
+                height: 280px;
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
+            }
+        }
+    }
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
+        .book-card__wrapper {
+            flex-direction: row;
+        }
+
+        .book-card__img {
+            background-image: none;
+            flex-shrink: 0;
+            img {
+                width: 112px;
+                height: 169px;
+            }
+        }
+        .book-card__content {
+            gap: 4px;
+        }
+        .book-card__title {
+            font-size: 20px;
+            line-height: 130%;
+        }
+        .book-card__author {
+            font-size: 16px;
+            line-height: 150%;
+        }
+        .book-card__desc {
+            font-size: 16px;
+            line-height: 150%;
+        }
+    }
+    &:nth-child(5),
+    &:nth-child(6),
+    &:nth-child(7) { 
+        
+        .book-card__img {
+            width: 354px;
+            height: 238px;
+            flex-shrink: 0;
+            img {
+                width: 114px;
+                height: 179px;
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
+            }
+        }
+        .book-card__content {
+            gap: 4px;
+        }
+        .book-card__title {
+            font-size: 20px;
+            line-height: 130%;
+        }
+        .book-card__author {
+            font-size: 16px;
+            line-height: 150%;
+        }
+        .book-card__desc {
+            font-size: 16px;
+            line-height: 150%;
+        }
+    }
+}
+
+
+@media (max-width: vars.$tablet-size) {
+
+    .book-card {
+        border-radius: 10px;
+        width: 327px;
+        height: 468px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.08);
+        background: var(--page-bg);
+        flex: 0 0 auto;
+        overflow: hidden;
+
+        &__read-more.btn {
+            display: block;
+        }
+        &,
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6),
+        &:nth-child(7) {
+            .book-card__img {
+                background-image: url(./../img/block/book_bg.jpg);
+                height: 220px;
+                width: 100%;
+                img {
+                    height: 166px;
+                    width: 105px;
+                }
+            }
+            .book-card__wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+            .book-card__content {
+                padding: 16px;
+                gap: 4px;
+            }
+            .book-card__title {
+                font-size: 16px;
+                line-height: 150%;
+            }
+            .book-card__author {
+                font-size: 14px;
+                line-height: 143%;
+                font-weight: 400;
+                margin-bottom: 8px;
+            }
+            .book-card__desc {
+                font-size: 14px;
+                line-height: 143%;
+                -webkit-line-clamp: 4;
+                max-height: 6em;  
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+}

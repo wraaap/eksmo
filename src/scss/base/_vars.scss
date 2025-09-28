@@ -1,0 +1,45 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic&display=swap);
+
+:root {
+	--container-width: 1256px;
+	--container-padding: 58px;
+	--container-padding-mobile: 16px;
+
+	--font-family: 'Roboto', sans-serif;
+
+	--page-bg: #fff;
+	--header-color: #000;
+	--accent: #f07c29;
+	--steel-blue: #696f89;
+	--gray:#aaa;
+	--light-gray: #d3d7df;
+	--text-color:#212121;
+
+
+	--laptop-size: 1199px;
+	--tablet-size: 959px;
+	--mobile-size: 599px;
+}
+
+.dark {
+	--page-bg: #252526;
+	--text-color: #fff;
+}
+
+// SCSS-переменные для использования в миксинах, медиа-запросах и т.д.
+$container-width: 1256px;
+$container-padding: 58px;
+
+$font-family: 'Roboto', sans-serif;
+
+$page-bg: #fff;
+$header-color: #000;
+$accent: #f07c29;
+$steel-blue: #696f89;
+$gray:#aaa;
+$text-color:#212121;
+
+
+$laptop-size: 1199px;
+$tablet-size: 1024px;
+$mobile-size: 599px;

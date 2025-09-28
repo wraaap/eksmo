@@ -1,0 +1,83 @@
+@use '../base/vars' as vars;
+
+
+.books {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+    &__wrapper {
+        display: grid;
+        grid-gap: 40px;
+        grid-template-columns: repeat(6,1fr);
+        grid-template-areas:
+            "a a a b b b" 
+            "a a a c c c" 
+            "a a a d d d" 
+            "e e f f g g";
+        &:active, 
+        &:focus {
+            border: 1px solid var(--accent)
+        }
+    }
+    
+    &__more {
+        width: fit-content;
+        height: 40px;
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 114%;
+        letter-spacing: 0.05em;
+        margin: 40px auto 0;
+        transition: all 0.3s ease;
+        &:hover.btn {
+            color: var(--accent);
+            cursor: pointer;
+            border: 1px solid var(--accent);
+        }
+    }
+
+    .btn {
+        display: block;
+        border: 1px solid var(--gray);
+        border-radius: 16px;
+        padding: 12px 32px;
+        text-transform: uppercase;
+        text-align: center;
+        color: var(--text-color);
+        transition: all 0.3s ease;
+    }
+
+    .books__shuffle {
+        background-color: var(--accent);
+        color: #fff;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        border: none;
+    }
+}
+
+@media (max-width: vars.$tablet-size) {
+    .books {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        &__wrapper {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding-left: 16px;
+            padding-bottom: 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin; 
+        }
+
+        &__more.btn {
+            display: none;
+        }
+        .books__shuffle {
+            display: none;
+        }
+    }
+}

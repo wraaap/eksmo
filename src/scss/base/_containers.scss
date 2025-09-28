@@ -1,0 +1,16 @@
+@use './mixins' as mixins;
+@use './vars' as vars;
+
+.container {
+	margin: 0 auto;
+	padding: 0 var(--container-padding);
+	max-width: var(--container-width);
+	width: 100%;
+}
+
+@media (max-width: vars.$tablet-size) {
+	.container {
+		padding: 0;
+		// padding: 0 var(--container-padding-mobile);
+	}
+}

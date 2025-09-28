@@ -1,0 +1,9 @@
+<section class="books">
+    <div class="container">
+        <div class="books__wrapper">
+            @@loop('book-card.html', './data/books.json')
+        </div>
+        <a href="#" class="books__more btn">Смотреть ещё</a>
+        <button id="shuffle-books" class="books__shuffle btn">Перемешать книги</button>
+    </div>
+</section>
